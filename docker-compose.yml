@@ -1,0 +1,18 @@
+services:
+  php-8-yii-2:
+    image: drvelasquezq/php-8-yii-2:1.0.0
+    container_name: container-php-8-yii-2
+    volumes:
+      - "./var/www/project-debug:/var/www/project-debug"
+      - "./var/www/basic:/var/www/basic"
+    # para ver logs de apache
+      - "./var/log/apache2:/var/log/apache2"
+    # log de php xdebug
+    #  - "./var/log/xdebug:/var/log/xdebug"
+    #arranque
+      - "./scripts/run.sh:/scripts/run.sh"
+      # para que cuando el contenedor se acceda con vscode directamente ya tenga las extensiones instaladas de php
+      - "./root:/root"
+    command: ["sh", "/scripts/run.sh"]
+    ports:
+      - "8089:80"
