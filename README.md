@@ -1,10 +1,12 @@
 # puede visualizarse en ejecución en
 
 <a href="https://php-8-yii-2.drvelasquezq.site" target="_blank">https://php-8-yii-2.drvelasquezq.site</a>
+<br>
+<a href="https://php-8-yii-2.drvelasquezq.site" target="_blank">https://php-8-yii-2.drvelasquezq.site/index.php?r=debug/default/index</a>
 
 ## Descripción
 
-Este proyecto da los pasos para utilizar y crear imagen de docker que ejecuta una aplicación de Yii 2 con PHP integrando Apache en Debian
+Este proyecto da los pasos para utilizar y crear imagen de docker que ejecuta una aplicación de Yii 2 (Template de Proyecto Básico) con PHP integrando Apache en Debian, según: https://www.yiiframework.com/doc/guide/2.0/es/start-installation#installing-via-composer
 
 <ul>
 <li>Apache: 2.4.62</li>
@@ -38,11 +40,18 @@ docker exec -ti container-php-8-yii-2 bash
 cd basic
 # otorgar permisos de escritura a carpeta publica de assets
 chown -R www-data:www-data web/assets/
+# otorgar permisos de escritura a carpeta publica de runtime
+chown -R www-data:www-data runtime/
 # instalar dependencias en el contenedor
 composer install
 ```
-
-luego podrá ingresar a: http://localhost:8089/basic/web/
+luego podrá ingresar a:
+<br>
+<a href="http://localhost:8089/basic/web/" target="_blank">http://localhost:8089/basic/web/</a>
+<br>
+<a href="http://localhost:8089/basic/web/index.php?r=debug/default/index" target="_blank">http://localhost:8089/basic/web/index.php?r=debug/default/index</a>
+<br>
+<a href="http://localhost:8089/basic/requirements.php" target="_blank">http://localhost:8089/basic/requirements.php</a>
 
 ### ejemplo para construir la imagen: 
 ```bash
