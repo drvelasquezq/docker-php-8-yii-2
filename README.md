@@ -1,15 +1,14 @@
 # puede visualizarse en ejecución en
 
-<a href="https://test.drvelasquezq.site/" target="_blank">https://test.drvelasquezq.site/</a>
-
-<a href="https://test.drvelasquezq.site/test.php" target="_blank">https://test.drvelasquezq.site/test.php</a>
+<a href="https://php-8-yii-2.drvelasquezq.site" target="_blank">https://php-8-yii-2.drvelasquezq.site</a>
 
 ## Descripción
 
-Este proyecto da los pasos para utilizar y crear imagen de docker que ejecuta una aplicación de PHP integrando Apache en Debian
+Este proyecto da los pasos para utilizar y crear imagen de docker que ejecuta una aplicación de Yii 2 con PHP integrando Apache en Debian
 
 <ul>
 <li>Apache: 2.4.62</li>
+<li>Yii: 2.0.45</li>
 <li>PHP: 8.2.29</li>
 <li>Debian: Bookworm</li>
 </ul>
@@ -33,9 +32,17 @@ git clone https://github.com/drvelasquezq/docker-php-8-yii-2.git
 cd docker-php-8-yii-2
 # crear contenedor
 docker compose up -d
+# ingresar al contenedor
+docker exec -ti container-php-8-yii-2 bash
+# despues de un ingreso exitoso ejecutar en el contenedor
+cd basic
+# otorgar permisos de escritura a carpeta publica de assets
+chown -R www-data:www-data web/assets/
+# instalar dependencias en el contenedor
+composer install
 ```
 
-luego podrá ingresar a: http://localhost:8089
+luego podrá ingresar a: http://localhost:8089/basic/web/
 
 ### ejemplo para construir la imagen: 
 ```bash
